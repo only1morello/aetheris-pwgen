@@ -1,4 +1,5 @@
 use rand::Rng;
+use std::io;
 
 fn gen_pass(len: usize) -> String {
     const ALPHABET: &str = "abcdefghijklmnopqrstuvwxyz\
@@ -18,4 +19,8 @@ fn gen_pass(len: usize) -> String {
 fn main() {
     let n: usize = 16; // длина пороля
     println!("Your random password: {}", gen_pass(n));
+
+    println!("\nPress Enter to exit...");
+    let mut buffer = String::new();
+    io::stdin().read_line(&mut buffer).unwrap();
 }
